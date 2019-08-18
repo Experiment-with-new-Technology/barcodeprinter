@@ -23,8 +23,8 @@ public class Main extends Application {
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/UI/MainView.fxml"));
-  
             Scene scene = new Scene(root);
+            primaryStage.setTitle("Barcode Printer");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

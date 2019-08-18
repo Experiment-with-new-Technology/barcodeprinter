@@ -26,6 +26,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import org.krysalis.barcode4j.impl.code128.Code128Bean;
@@ -42,10 +43,12 @@ public class MainViewController implements Initializable {
     private Button btn;
     @FXML
     private TextField id, noOfBarcode;
+
     @FXML
-    private Label code;
+    private Label message;
+
     @FXML
-    private ImageView img;
+    private ProgressIndicator progressStatus;
 
     /**
      * Initializes the controller class.
@@ -66,58 +69,59 @@ public class MainViewController implements Initializable {
     }
 
     private void code() throws FileNotFoundException, IOException, BadElementException, DocumentException {
-        Code128Bean code128 = new Code128Bean();
-        code128.setHeight(15f);
-        code128.setModuleWidth(0.3);
-        code128.setQuietZone(10);
-        code128.doQuietZone(true);
+        if(!id.getText().isEmpty()) {
+            Code128Bean code128 = new Code128Bean();
+            code128.setHeight(15f);
+            code128.setModuleWidth(0.3);
+            code128.setQuietZone(10);
+            code128.doQuietZone(true);
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        BitmapCanvasProvider canvas = new BitmapCanvasProvider(baos, "image/x-png", 400, BufferedImage.TYPE_BYTE_BINARY, false, 0);
-        code128.generateBarcode(canvas, id.getText());
-        System.out.println(noOfBarcode.getText());
-        canvas.finish();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            BitmapCanvasProvider canvas = new BitmapCanvasProvider(baos, "image/x-png", 400, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+            code128.generateBarcode(canvas, id.getText());
+            System.out.println(noOfBarcode.getText());
+            canvas.finish();
 
 //write to png file
-        FileOutputStream fos = new FileOutputStream("barcode.png");
-        fos.write(baos.toByteArray());
-        fos.flush();
-        fos.close();
+            FileOutputStream fos = new FileOutputStream("barcode.png");
+            fos.write(baos.toByteArray());
+            fos.flush();
+            fos.close();
 
 //write to pdf
-        Image png = Image.getInstance(baos.toByteArray());
-        png.setAbsolutePosition(0, 705);
-        png.scalePercent(25);
+            Image png = Image.getInstance(baos.toByteArray());
+            png.setAbsolutePosition(0, 705);
+            png.scalePercent(25);
 
-        Document document;
-        document = new Document();
-        PdfPTable table = new PdfPTable(3);
-        table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-        for (int aw = 0; aw < 27; aw++) {
-            Paragraph p = new Paragraph("        Product Name");
-            p.add("\n        Price:500");
+            Document document;
+            document = new Document();
+            PdfPTable table = new PdfPTable(3);
+            table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            for (int aw = 0; aw < 27; aw++) {
+                Paragraph p = new Paragraph("        Product Name");
+                p.add("\n        Price:500");
 //            p.add(createImageCell(png));
-            PdfPTable intable = new PdfPTable(1);
-            intable.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            intable.addCell(p);
-            intable.addCell(png);
-            intable.getDefaultCell().setBorder(0);
-            
-            table.addCell(intable);
-        }
+                PdfPTable intable = new PdfPTable(1);
+                intable.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                intable.addCell(p);
+                intable.addCell(png);
+                intable.getDefaultCell().setBorder(0);
+
+                table.addCell(intable);
+            }
 //        table.setBorder(Border.NO_BORDER);
-        Paragraph p = new Paragraph("Product Name");
-        p.add("\nPrice:500");
-        p.add(png);
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("barcodes.pdf"));
-        document.open();
+            Paragraph p = new Paragraph("Product Name");
+            p.add("\nPrice:500");
+            p.add(png);
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("barcodes.pdf"));
+            document.open();
 //        document.add();
-        document.add(table);
-        document.close();
+            document.add(table);
+            document.close();
 
-        writer.close();
-        
+            writer.close();
+        } else {
 
+        }
     }
-
 }
