@@ -69,7 +69,7 @@ public class MainViewController implements Initializable {
     }
 
     private void code() throws FileNotFoundException, IOException, BadElementException, DocumentException {
-        if(!id.getText().isEmpty()) {
+        if(!id.getText().isEmpty() && !noOfBarcode.getText().isEmpty()) {
             Code128Bean code128 = new Code128Bean();
             code128.setHeight(15f);
             code128.setModuleWidth(0.3);
@@ -121,7 +121,7 @@ public class MainViewController implements Initializable {
 
             writer.close();
         } else {
-
+            ToastController.showToast(ToastController.TOAST_WARN,btn,"Accession Number or No of Barcode missing");
         }
     }
 }
