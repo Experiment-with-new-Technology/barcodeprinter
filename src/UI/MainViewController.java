@@ -44,18 +44,13 @@ public class MainViewController implements Initializable {
     @FXML
     private TextField id, noOfBarcode;
 
-    @FXML
-    private Label message;
-
-    @FXML
-    private ProgressIndicator progressStatus;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             btn.setOnAction(e->{
+                ToastController.showToast(ToastController.TOAST_WARN,btn,"Barcode Creating");
                 try {
                     code();
                 } catch (IOException | DocumentException ex) {
@@ -65,7 +60,16 @@ public class MainViewController implements Initializable {
     }
 
     private void code() throws FileNotFoundException, IOException, BadElementException, DocumentException {
-        if(!id.getText().isEmpty() && !noOfBarcode.getText().isEmpty()) {
+        Integer numberOfBarcode = 0;
+        if(!noOfBarcode.getText().isEmpty()) {
+            try {
+                numberOfBarcode = Integer.parseInt(noOfBarcode.getText());
+            } catch (Exception e) {
+                ToastController.showToast(ToastController.TOAST_ERROR,btn,"Input Valid Number in 'Number of Barcode'");
+            }
+
+        }
+        if(!id.getText().isEmpty() && numberOfBarcode != 0) {
             Code128Bean code128 = new Code128Bean();
             code128.setHeight(15f);
             code128.setModuleWidth(0.3);
@@ -84,9 +88,9 @@ public class MainViewController implements Initializable {
 
             Document document;
             document = new Document();
-            PdfPTable table = new PdfPTable(3);
+            PdfPTable table = new PdfPTable(1);
             table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            for (int aw = 0; aw < 27; aw++) {
+            for (int aw = 0; aw < numberOfBarcode; aw++) {
                 Paragraph p = new Paragraph();
                 PdfPTable intable = new PdfPTable(1);
                 intable.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
@@ -97,15 +101,22 @@ public class MainViewController implements Initializable {
             }
             Paragraph p = new Paragraph();
             p.add(png);
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("barcodes.pdf"));
-            document.open();
-            document.add(table);
-            document.close();
-            writer.close();
+            try {
+                PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("barcodes.pdf"));
+                document.open();
+                document.add(table);
+                document.close();
+                writer.close();
+                Desktop.getDesktop().open(new File("barcodes.pdf"));
+                ToastController.showToast(ToastController.TOAST_SUCCESS,btn,"Barcode Creation Done.");
+            } catch (Exception e) {
+                if(e.getMessage().contains("section open")) {
+                    ToastController.showToast(ToastController.TOAST_ERROR,btn,"Close Previous one & try again");
+                }
+            }
 
-            Desktop.getDesktop().open(new File("barcodes.pdf"));
         } else {
-            ToastController.showToast(ToastController.TOAST_WARN,btn,"Accession Number or No of Barcode missing");
+            ToastController.showToast(ToastController.TOAST_ERROR,btn,"'Accession Number' or 'No of Barcode' is invalid");
         }
     }
 }
