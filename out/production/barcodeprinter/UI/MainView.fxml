@@ -9,14 +9,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="324.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.MainViewController">
+<AnchorPane id="AnchorPane" prefHeight="305.0" prefWidth="324.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.MainViewController">
   <children>
-    <Button fx:id="btn" layoutX="58.0" layoutY="167.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="185.0" text="Generate Bar Code" />
+    <Button fx:id="btn" layoutX="58.0" layoutY="210.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="185.0" text="Generate Bar Code" />
     <TextField fx:id="id" layoutX="58.0" layoutY="45.0" prefHeight="26.0" prefWidth="185.0" promptText="Accession Number" />
-    <TextField fx:id="noOfBarcode" layoutX="58.0" layoutY="121.0" prefHeight="26.0" prefWidth="185.0" promptText="Number of Barcode" />
-    <ProgressIndicator id="progressStatus" layoutX="129.0" layoutY="320.0" progress="0.0" />
+    <TextField fx:id="noOfBarcode" layoutX="58.0" layoutY="140.0" prefHeight="26.0" prefWidth="185.0" promptText="Number of Barcode" />
     <Label layoutX="58.0" layoutY="21.0" text="Accession Number" />
-    <Label layoutX="58.0" layoutY="97.0" text="Number of Barcode" />
-    <Label id="message" layoutX="58.0" layoutY="212.0" text="" />
+    <Label layoutX="58.0" layoutY="116.0" text="Number of Barcode" />
   </children>
 </AnchorPane>
