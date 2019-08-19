@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fcf8e54-bd3c-4b17-a6c4-eee5c908724c" name="Default Changelist" comment="Added open pdf functionality">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/barcodes.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/barcodes.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/barcodeprinter/UI/MainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/barcodeprinter/UI/MainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MainViewController.java" afterDir="false" />
+    <list default="true" id="6fcf8e54-bd3c-4b17-a6c4-eee5c908724c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/barcodeprinter/UI/MainView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/barcodeprinter/UI/MainViewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/barcodeprinter/barcode/Main.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/MainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="67" column="115" selection-start-line="67" selection-start-column="115" selection-end-line="67" selection-end-column="115" />
+            <state relative-caret-position="97">
+              <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/src/UI/MainView.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -238,7 +236,7 @@
       <workItem from="1566098063002" duration="1214000" />
       <workItem from="1566100640660" duration="558000" />
       <workItem from="1566101559289" duration="9641000" />
-      <workItem from="1566211915506" duration="5895000" />
+      <workItem from="1566211915506" duration="6154000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed un-wanted idea iml issue">
       <created>1566101728521</created>
@@ -268,17 +266,30 @@
       <option name="project" value="LOCAL" />
       <updated>1566109273383</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed error message">
+      <created>1566219479973</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566219479973</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed error message">
+      <created>1566219527683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566219527683</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19509000" />
+    <option name="totallyTimeSpent" value="19768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.024291499" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25263157" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -288,7 +299,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962963" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.055555556" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4351852" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.22777778" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -316,19 +327,8 @@
     <MESSAGE value="Fixed un-wanted idea iml issue" />
     <MESSAGE value="Added Toast for message showing" />
     <MESSAGE value="Added open pdf functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added open pdf functionality" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/UI/MainViewController.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fixed error message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed error message" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -448,15 +448,15 @@
     <entry file="file://$PROJECT_DIR$/src/UI/MainView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/MainViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="67" column="115" selection-start-line="67" selection-start-column="115" selection-end-line="67" selection-end-column="115" />
+        <state relative-caret-position="97">
+          <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
